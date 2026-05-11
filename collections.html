@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections - LaFoudre</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --accent-color: #6c757d;
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            background-color: #fff;
+            height: calc(100vh - 76px);
+            position: fixed;
+            top: 76px;
+            left: 0;
+            width: 250px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.06);
+            padding-top: 20px;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 40px 30px;
+        }
+
+        .section-title {
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--accent-color);
+            margin: 12px auto 0;
+        }
+
+        .collection-filter {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .collection-filter li {
+            padding: 12px 22px;
+            border-bottom: 1px solid #eee;
+            background: #f7f7f7;
+        }
+
+        .collection-filter li a {
+            text-decoration: none;
+            color: #212529;
+            font-weight: 500;
+        }
+
+        /* PRODUCT GRID */
+        .product-item {
+            display: flex;
+        }
+
+        .product-item .card {
+            width: 100%;
+            min-height: 500px;
+            border-radius: 0;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+        }
+
+        .product-item .card-img-top {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-item .card-body {
+            display: flex;
+            flex-direction: column;
+            padding: 18px;
+        }
+
+        .product-item .card-title {
+            font-size: 1rem;
+            min-height: 48px;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .coming-soon {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            min-height: 20px;
+        }
+
+        .buy-btn {
+            width: 100%;
+            border-radius: 0;
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 991px) {
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top custom-navbar">
+        <div class="container custom-nav-container">
+
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="sticker.png" alt="Lafoudre Logo">
+            </a>
+
+            <!-- Mobile buttons -->
+            <div class="d-flex d-lg-none align-items-center">
+                <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+            </div>
+
+            <!-- Nav -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <!-- menu tengah -->
+                <ul class="navbar-nav mx-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="collections.html">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="lookbook.html">Look Book</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h4 class="px-3 mb-4">Collections</h4>
+        <ul class="collection-filter">
+            <li><a href="#">All Products</a></li>
+        </ul>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <h2 class="section-title">Our Collections</h2>
+
+        <div class="row g-4">
+
+            <!-- PRODUCT 1 -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 product-item">
+                <div class="card">
+                    <img src="image/look21.jpg" class="card-img-top" alt="Oversized Tee Alpha">
+                    <div class="card-body text-center">
+                        <div>
+                            <h5 class="card-title"> LA FOUDRE BLACKED SWEATPANTS</h5>
+                            <p class="text-muted coming-soon">Available</p>
+                            <p class="price">Rp 299.000</p>
+                        </div>
+
+                        <a href="https://shopee.co.id/LA-FOUDRE-BLACKED-SWEATPANTS-i.1658719413.57453653271?extraParams=%7B%22display_model_id%22%3A335372365712%2C%22model_selection_logic%22%3A3%7D"
+                            target="_blank" class="btn btn-dark buy-btn mt-auto">
+                            Buy Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+/* ================= NAVBAR ================= */
+.custom-navbar {
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.custom-nav-container {
+    max-width: 1180px;
+}
+
+/* logo */
+.navbar-brand img {
+    height: 52px;
+    width: auto;
+}
+
+/* menu tengah */
+.navbar-nav .nav-link {
+    color: #d8d2c4 !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0 12px;
+    position: relative;
+    transition: 0.25s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #ffffff !important;
+}
+
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #d6b98c;
+    transition: 0.25s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+/* hamburger */
+.navbar-toggler {
+    border: none;
+    box-shadow: none !important;
+    padding: 4px 8px;
+}
+
+/* mobile */
+@media (max-width: 991px) {
+    .navbar-nav {
+        padding-top: 12px;
+        text-align: center;
+    }
+
+    .navbar-nav .nav-link {
+        margin: 8px 0;
+    }
+}
+
+/* =================BATAS CSS NAVBAR ================= */
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.carousel-inner img {
+    height: 90vh;
+    object-fit: cover;
+}
+
+.profile-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.section-title {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+    background-color: #212529;
+    color: white;
+    padding: 40px 0;
+}
+
+/* Mengecilkan tombol hamburger */
+.navbar-toggler {
+    padding: 4px 8px;
+    font-size: 0.9rem;
+    border: none;
+    /* Hapus garis tepi */
+}
+
+/* 3 section lookbook sesuai tahun */
+.lookbook-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.section-title {
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.lookbook-img {
+    width: 100%;
+    height: 450px;
+    object-fit: contain;
+    object-position: top;
+    background-color: #fff;
+}
+
+/* ===== Page transition ===== */
+body {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+body.page-loaded {
+    opacity: 1;
+}
+
+/* ================= SOCIAL LINKS ================= */
+.social-links {
+    margin-top: 50px;
+    padding: 0 12px;
+}
+
+.social-title {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 18px;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #111;
+    font-size: 14px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.social-btn i {
+    font-size: 16px;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    border-color: #111;
+    color: #111;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 576px) {
+    .social-buttons {
+        gap: 10px;
+    }
+
+    .social-btn {
+        width: calc(50% - 8px);
+        justify-content: center;
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .social-btn:last-child {
+        width: 100%;
+    }
+}
+
+/* ================= diatas SOCIAL LINKS ================= */

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LaFoudre Community</title>
+    <title>Community</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
@@ -52,15 +52,17 @@
             transform: scale(1.04);
         }
 
+        /* TABLET */
         @media (max-width: 992px) {
-            .gallery {
-                column-count: 3;
-            }
-        }
 
-        @media (max-width: 768px) {
             .gallery {
-                column-count: 2;
+                column-count: 4;
+                column-gap: 6px;
+                padding: 0 6px 25px;
+            }
+
+            .gallery-item {
+                margin-bottom: 6px;
             }
 
             .hero h1 {
@@ -68,9 +70,26 @@
             }
         }
 
-        @media (max-width: 480px) {
+        /* MOBILE */
+        @media (max-width: 576px) {
+
             .gallery {
-                column-count: 1;
+                column-count: 4;
+                column-gap: 4px;
+                padding: 0 4px 20px;
+            }
+
+            .gallery-item {
+                margin-bottom: 4px;
+            }
+
+            .hero {
+                padding: 25px 10px 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.1rem;
+                letter-spacing: 1px;
             }
         }
     </style>
@@ -83,36 +102,66 @@
 
             <!-- Logo -->
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="sticker.png" alt="Lafoudre Logo">
+                <img src="logo/logoLF.png" alt="Lafoudre Logo">
             </a>
 
-            <!-- Mobile buttons -->
-            <div class="d-flex d-lg-none align-items-center">
-                <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <!-- Hamburger Button -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileMenu" aria-controls="mobileMenu">
 
-            </div>
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <!-- Nav -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-
-                <!-- menu tengah -->
+            <!-- Desktop Menu -->
+            <div class="collapse navbar-collapse d-none d-lg-flex">
                 <ul class="navbar-nav mx-auto align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="collections.html">Collections</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="lookbook.html">Look Book</a></li>
                     <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
                 </ul>
-
             </div>
         </div>
     </nav>
 
+    <!-- MOBILE SIDEBAR -->
+    <div class="offcanvas offcanvas-end custom-sidebar" tabindex="-1" id="mobileMenu">
+
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-white">MENU</h5>
+
+            <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas">
+            </button>
+        </div>
+
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="collections.html">Collections</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="lookbook.html">Look Book</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="community.html">Community</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <section class="hero">
-        <h1>LaFoudre Community</h1>
+        <h1>La Foudre Community</h1>
     </section>
 
     <section class="gallery">

@@ -458,3 +458,74 @@ body.page-loaded {
         font-size: 13px;
     }
 }
+
+/* ================= HERO IMAGE RESPONSIVE ================= */
+
+.hero-container {
+    width: 100%;
+    background-color: #fff;
+    /* Warna latar jika gambar belum muat */
+}
+
+.hero-image {
+    width: 100%;
+    /* 
+       height: auto akan memastikan gambar tidak terpotong kanan-kiri 
+       dan mempertahankan bentuk landscape aslinya di mobile maupun desktop.
+    */
+    height: auto;
+
+    /* Menghilangkan batasan object-fit agar gambar tampil utuh */
+    object-fit: contain;
+    display: block;
+}
+
+/* Pengaturan khusus untuk mengatur jarak/ukuran di berbagai layar */
+@media (min-width: 992px) {
+    .hero-image {
+        /* Untuk desktop, jika ingin membatasi tinggi maksimal agar tidak terlalu memenuhi layar */
+        max-height: 850px;
+        object-fit: cover;
+        /* Di desktop kita gunakan cover agar estetik memenuhi lebar */
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-image {
+        /* Di mobile, kita paksa tampil utuh (landscape) */
+        height: auto !important;
+        min-height: 200px;
+        /* <--- EDIT INI: tinggi minimal agar tidak terlalu kecil di HP */
+    }
+}
+
+/* ================= ADJUST SECTION SPACING (MOBILE) ================= */
+
+@media (max-width: 576px) {
+
+    /* 1. Mengurangi jarak antar container section */
+    .custom-section {
+        padding-top: 10px !important;
+        /* <--- EDIT INI: Jarak atas section */
+        padding-bottom: 10px !important;
+        /* <--- EDIT INI: Jarak bawah section */
+    }
+
+    /* 2. Mengurangi margin pada judul tahun */
+    .section-title {
+        margin-top: 20px !important;
+        /* Default tadi 60px, kita pangkas jadi 20px */
+        margin-bottom: 15px !important;
+        /* Jarak antara tulisan tahun ke gambar */
+        font-size: 1.5rem;
+        /* Mengecilkan sedikit ukuran tulisan tahun di HP */
+    }
+
+    /* 3. Merapatkan jarak antar gambar di dalam grid */
+    .row.g-4 {
+        --bs-gutter-y: 10px;
+        /* Merapatkan jarak vertikal antar foto */
+        --bs-gutter-x: 10px;
+        /* Merapatkan jarak horizontal antar foto */
+    }
+}

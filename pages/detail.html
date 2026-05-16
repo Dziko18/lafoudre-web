@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail | La Foudre</title>
+
+    <link rel="icon" type="image/png" href="../logo/logoLF.png">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        body {
+            background: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        .detail-section {
+            padding: 50px 0 80px;
+        }
+
+        .product-image-wrapper {
+            background: #fff;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 650px;
+            object-fit: cover;
+        }
+
+        .thumbnail-images {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .thumbnail-images img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .thumbnail-images img:hover {
+            border-color: #212529;
+        }
+
+        .product-brand {
+            color: #6c757d;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .product-desc {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .section-label {
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .size-btn {
+            width: 55px;
+            height: 55px;
+            border: 1px solid #ddd;
+            background: white;
+            transition: .3s;
+            font-weight: 500;
+        }
+
+        .size-btn:hover,
+        .size-btn.active {
+            background: #111;
+            color: white;
+            border-color: #111;
+        }
+
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .qty-btn {
+            width: 45px;
+            height: 45px;
+            border: none;
+            background: #111;
+            color: white;
+            font-size: 18px;
+        }
+
+        .qty-number {
+            font-size: 18px;
+            font-weight: 500;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-buy {
+            background: #111;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .btn-buy:hover {
+            background: #333;
+            color: white;
+        }
+
+        .btn-cart {
+            border: 1px solid #111;
+            background: transparent;
+            padding: 14px 35px;
+            transition: .3s;
+        }
+
+        .btn-cart:hover {
+            background: #111;
+            color: white;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+        }
+
+        .recommend-section {
+            padding-bottom: 80px;
+        }
+
+        .recommend-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .recommend-card {
+            background: white;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, .05);
+            transition: .3s;
+        }
+
+        .recommend-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .recommend-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .recommend-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .recommend-price {
+            color: #6c757d;
+        }
+
+        @media(max-width:991px) {
+            .product-image {
+                height: 450px;
+            }
+
+            .product-title {
+                font-size: 2rem;
+                margin-top: 20px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn-buy,
+            .btn-cart {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media(max-width:576px) {
+            .product-image {
+                height: 350px;
+            }
+
+            .thumbnail-images img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .product-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top custom-navbar">
+        <div class="container custom-nav-container">
+
+            <a class="navbar-brand d-flex align-items-center" href="../pages/index.html">
+                <img src="../logo/logoLF.png" alt="Lafoudre Logo">
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-none d-lg-flex">
+                <ul class="navbar-nav mx-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/shop.html">
+                            Shop
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/lookbook.html">
+                            Look Book
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/community.html">
+                            Community
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/about.html">
+                            About
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="offcanvas offcanvas-end custom-sidebar" tabindex="-1" id="mobileMenu">
+
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-white">
+                MENU
+            </h5>
+
+            <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas">
+            </button>
+        </div>
+
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/shop.html">
+                        Shop
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/lookbook.html">
+                        Look Book
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/community.html">
+                        Community
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/about.html">
+                        About
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PRODUCT DETAIL -->
+    <section class="detail-section">
+        <div class="container">
+            <div class="row g-5">
+
+                <div class="col-lg-6">
+                    <div class="product-image-wrapper">
+                        <img src="../image/look21.jpg" class="product-image" alt="">
+                    </div>
+
+                    <div class="thumbnail-images">
+                        <img src="../image/look21.jpg">
+                        <img src="../image/look17.jpg">
+                        <img src="../image/look26.jpg">
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <p class="product-brand">
+                        LA FOUDRE COLLECTION
+                    </p>
+
+                    <h1 class="product-title">
+                        LA FOUDRE BLACKED SWEATPANTS
+                    </h1>
+
+                    <h3 class="product-price">
+                        Rp 299.000
+                    </h3>
+
+                    <p class="product-desc">
+                        Premium sweatpants dengan bahan nyaman,
+                        cutting modern, dan cocok untuk daily outfit
+                        maupun streetwear style.
+                    </p>
+
+                    <p class="section-label">
+                        Select Size
+                    </p>
+
+                    <div class="size-options">
+                        <button class="size-btn">S</button>
+                        <button class="size-btn active">M</button>
+                        <button class="size-btn">L</button>
+                        <button class="size-btn">XL</button>
+                    </div>
+
+                    <p class="section-label">
+                        Quantity
+                    </p>
+
+                    <div class="quantity-box">
+                        <button class="qty-btn">-</button>
+                        <span class="qty-number">1</span>
+                        <button class="qty-btn">+</button>
+                    </div>
+
+                    <div class="action-buttons">
+
+                        <a href="https://shopee.co.id/LA-FOUDRE-BLACKED-SWEATPANTS-i.1658719413.57453653271"
+                            target="_blank" class="btn-buy">
+                            BUY NOW
+                        </a>
+
+                        <button class="btn-cart">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            ADD TO CART
+                        </button>
+
+                    </div>
+
+                    <div class="features">
+
+                        <div class="feature-item">
+                            <i class="fas fa-truck"></i>
+                            Fast Delivery
+                        </div>
+
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            Premium Quality
+                        </div>
+
+                        <div class="feature-item">
+                            <i class="fas fa-rotate-left"></i>
+                            Easy Return
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECOMMEND -->
+    <section class="recommend-section">
+        <div class="container">
+
+            <h3 class="recommend-title">
+                YOU MAY ALSO LIKE
+            </h3>
+
+            <div class="row g-4">
+
+                <div class="col-6 col-lg-4">
+                    <div class="recommend-card">
+                        <img src="../image/look17.jpg">
+                        <div class="recommend-body">
+                            <h6>Vintage Tee</h6>
+                            <p class="recommend-price">
+                                Rp 249.000
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-4">
+                    <div class="recommend-card">
+                        <img src="../image/look26.jpg">
+                        <div class="recommend-body">
+                            <h6>Street Hoodie</h6>
+                            <p class="recommend-price">
+                                Rp 399.000
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 La Foudre</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../script.js"></script>
+
+</body>
+
+</html>

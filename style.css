@@ -61,7 +61,7 @@ body.page-loaded {
     height: 56px;
     width: auto;
 
-    filter: brightness(0);
+    /* filter: brightness(0); <-- Hapus atau beri komentar seperti ini */
 }
 
 /* navbar menu */

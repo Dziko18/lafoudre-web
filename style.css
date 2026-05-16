@@ -236,38 +236,6 @@ body.page-loaded {
     pointer-events: none;
 }
 
-/* ================= SHOP NOW BUTTON ================= */
-
-.shop-now-btn {
-    pointer-events: auto;
-
-    text-decoration: none;
-    color: white;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    letter-spacing: 3px;
-
-    padding: 12px 32px;
-
-    border: 1px solid rgba(255, 255, 255, 0.7);
-
-    background: rgba(255, 255, 255, 0.08);
-
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
-    transition: all 0.3s ease;
-}
-
-.shop-now-btn:hover {
-    background: white;
-    color: black;
-
-    transform: translateY(-3px);
-}
-
 /* ================= INFO DROPDOWN ================= */
 
 .info-dropdown {
